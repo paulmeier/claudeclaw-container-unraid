@@ -1,5 +1,9 @@
 # claudeclaw-container-unraid
 
+<p align="center">
+  <img src="icons/claudeclaw-container.png" alt="claudeclaw" width="200" />
+</p>
+
 [![Lint](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/lint.yml/badge.svg)](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/lint.yml)
 [![CI](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/ci.yml/badge.svg)](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/paulmeier/claudeclaw-container-unraid)](https://github.com/paulmeier/claudeclaw-container-unraid/releases)
