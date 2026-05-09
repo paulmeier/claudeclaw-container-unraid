@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Maintainer>
+  <Icon>https://raw.githubusercontent.com/paulmeier/claudeclaw-container-unraid/main/icons/claudeclaw-container.png</Icon>
+  <Profile>Maintainer of the claudeclaw Unraid template. claudeclaw runs Claude Code as a persistent personal AI assistant daemon with Telegram, Discord, and Slack messaging bridges, scheduled jobs, and voice transcription via Whisper.</Profile>
+  <WebPage>https://github.com/paulmeier/claudeclaw-container-unraid</WebPage>
+</Maintainer>

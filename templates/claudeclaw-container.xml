@@ -1,0 +1,114 @@
+<Container>
+  <Name>claudeclaw</Name>
+  <Repository>paulmeier/claudeclaw-container:latest</Repository>
+  <Registry>https://hub.docker.com/r/paulmeier/claudeclaw-container</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Shell>sh</Shell>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+
+  <Support>https://github.com/paulmeier/claudeclaw-container-unraid/issues</Support>
+  <Project>https://github.com/paulmeier/claudeclaw-container</Project>
+
+  <Category>AI: Tools;Productivity: Other</Category>
+
+  <Icon>https://raw.githubusercontent.com/paulmeier/claudeclaw-container-unraid/main/icons/claudeclaw-container.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/paulmeier/claudeclaw-container-unraid/main/templates/claudeclaw-container.xml</TemplateURL>
+
+  <WebUI>http://[IP]:[PORT:4632]</WebUI>
+
+  <Overview>
+    claudeclaw runs Claude Code as a persistent background daemon with Telegram, Discord,
+    and Slack messaging bridges, scheduled cron jobs, voice transcription via Whisper, and
+    a web dashboard. Requires a Claude Code subscription at claude.ai/code — no API key needed.
+  </Overview>
+
+  <Requires>
+    A Claude Code subscription (claude.ai/code) is required. After starting the container
+    for the first time, open a terminal to it and run: claude login
+  </Requires>
+
+  <ExtraSearchTerms>claude ai assistant llm telegram discord slack whisper voice cron jobs automation</ExtraSearchTerms>
+
+  <!-- PORT -->
+  <Config Name="Web Dashboard Port"
+          Target="4632"
+          Default="4632"
+          Mode="tcp"
+          Type="Port"
+          Display="always"
+          Required="true"
+          Description="Port for the claudeclaw web dashboard.">
+  </Config>
+
+  <!-- REQUIRED DATA VOLUME -->
+  <Config Name="App Data"
+          Target="/root/.claude"
+          Default="/mnt/user/appdata/claudeclaw"
+          Mode="rw"
+          Type="Path"
+          Display="always"
+          Required="true"
+          Description="Stores Claude Code credentials, claudeclaw settings, logs, jobs, and Whisper models. Must persist across restarts.">
+  </Config>
+
+  <!-- OPTIONAL VOLUMES -->
+  <Config Name="Notes Directory"
+          Target="/mnt/notes"
+          Default=""
+          Mode="ro"
+          Type="Path"
+          Display="advanced"
+          Required="false"
+          Description="Optional host directory for claudeclaw to read. Reference it in prompts and jobs as /mnt/notes.">
+  </Config>
+
+  <Config Name="Documents Directory"
+          Target="/mnt/documents"
+          Default=""
+          Mode="ro"
+          Type="Path"
+          Display="advanced"
+          Required="false"
+          Description="Optional host directory for claudeclaw to read. Reference it in prompts and jobs as /mnt/documents.">
+  </Config>
+
+  <Config Name="Backup Directory"
+          Target="/backup"
+          Default=""
+          Mode="rw"
+          Type="Path"
+          Display="advanced"
+          Required="false"
+          Description="Optional host directory for backups. Run /backup.sh inside the container to create a timestamped snapshot of all claudeclaw data here.">
+  </Config>
+
+  <Description>
+    claudeclaw extends Claude Code into a personal AI assistant daemon that runs continuously in the background.
+
+    AUTHENTICATION — REQUIRED BEFORE USE:
+    claudeclaw uses your Claude Code subscription, not an API key. After starting the container for the first
+    time, open a terminal to the container in Unraid and run: claude login
+
+    This opens an OAuth browser flow. Complete it once and your credentials are saved to the app data directory.
+    They persist across container restarts.
+
+    CONFIGURATION:
+    On first start, a default settings.json is created at your app data path under claudeclaw/settings.json.
+    Edit this file to configure messaging bridges, heartbeat intervals, security levels, and session options.
+    A full example with all available fields is at https://github.com/paulmeier/claudeclaw-container/blob/main/settings.example.json
+
+    MESSAGING SETUP:
+    Telegram — add your BotFather token and allowed user IDs to settings.json.
+    Discord — add your bot token, enable Message Content Intent in the developer portal, and add channel IDs.
+    Slack — add your xoxb- bot token and xapp- app-level token (Socket Mode required).
+    All messaging bridges use outbound connections only — no additional ports need to be opened.
+
+    ADDITIONAL DIRECTORIES:
+    Mount host directories under /mnt/ to give claudeclaw access to your files.
+    Use read-only mode for directories it should only read, read-write for those it can modify.
+
+    BACKUPS:
+    Mount a backup directory and run /backup.sh inside the container to create a timestamped snapshot.
+  </Description>
+</Container>
