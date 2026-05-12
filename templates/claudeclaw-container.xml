@@ -49,8 +49,7 @@
           Type="Path"
           Display="always"
           Required="true"
-          Description="Stores Claude Code credentials, claudeclaw settings, logs, jobs, and Whisper models. Must persist across restarts.">
-  </Config>
+          Description="Stores Claude Code credentials, claudeclaw settings, logs, jobs, and Whisper models. Must persist across restarts.">/mnt/user/appdata/claudeclaw</Config>
 
   <!-- OPTIONAL VOLUMES -->
   <Config Name="Notes Directory"
