@@ -91,6 +91,20 @@
           Description="Optional host directory for backups. Run /backup.sh inside the container to create a timestamped snapshot of all claudeclaw data here.">
   </Config>
 
+  <!-- TAILSCALE SUPPORT -->
+  <!-- Unraid's CA Tailscale integration cannot auto-detect a persistent state directory
+       for claudeclaw because /root/.claude is not one of the conventional paths it scans
+       (/config, /data, etc). Pre-declare the fallback so enabling Tailscale via the
+       Advanced UI works without the user having to fill in the State Directory by hand. -->
+  <Config Name="TailScale Fallback State Directory"
+          Target="CA_TS_FALLBACK_DIR"
+          Default="/root/.claude/tailscale"
+          Mode=""
+          Type="Variable"
+          Display="advanced-hide"
+          Required="false"
+          Description="Container directory where Unraid's CA Tailscale integration stores its state (machine key, node info). Kept under /root/.claude so it persists across container recreation and image updates. Only used when Tailscale is enabled via the Docker template's Advanced View.">/root/.claude/tailscale</Config>
+
   <Description>
     claudeclaw extends Claude Code into a personal AI assistant daemon that runs continuously in the background.
 
