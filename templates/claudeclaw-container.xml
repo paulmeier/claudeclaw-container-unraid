@@ -38,8 +38,17 @@
           Type="Port"
           Display="always"
           Required="true"
-          Description="Port for the claudeclaw web dashboard.">
-  </Config>
+          Description="Port for the claudeclaw web dashboard.">4632</Config>
+
+  <!-- ENV VARS -->
+  <Config Name="IS_SANDBOX"
+          Target="IS_SANDBOX"
+          Default="1"
+          Mode=""
+          Type="Variable"
+          Display="advanced"
+          Required="true"
+          Description="Tells Claude Code that this is a sandboxed environment, so it accepts --dangerously-skip-permissions when running as root. Required for claudeclaw to function inside this container. Do not unset.">1</Config>
 
   <!-- REQUIRED DATA VOLUME -->
   <Config Name="App Data"
