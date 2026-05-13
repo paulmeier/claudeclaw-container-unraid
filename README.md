@@ -54,6 +54,16 @@ This opens an OAuth browser flow. Complete it once and credentials are saved per
 
 Edit `settings.json` in your app data directory (`/mnt/user/appdata/claudeclaw/claudeclaw/settings.json`) to configure messaging bridges and other options. Use [settings.example.json](https://github.com/paulmeier/claudeclaw-container/blob/main/settings.example.json) as a starting point.
 
+## Tailscale
+
+The template supports Unraid's Community Applications Tailscale integration. To enable it:
+
+1. Open the claudeclaw container in **Docker** and switch to **Advanced View**.
+2. Toggle **Use Tailscale** on and fill in the standard Tailscale fields (hostname, exit node, etc.).
+3. Apply.
+
+The template pre-declares `CA_TS_FALLBACK_DIR=/root/.claude/tailscale`, so Tailscale's state (machine key, node info) lands inside the persistent appdata volume at `/mnt/user/appdata/claudeclaw/tailscale/` and survives container recreation and image updates. Without this, Unraid's Tailscale hook errors with `Couldn't detect persistent Docker directory for .tailscale_state!` because it can't auto-recognize `/root/.claude` as a config path.
+
 ## Support
 
 Open an issue: https://github.com/paulmeier/claudeclaw-container-unraid/issues
