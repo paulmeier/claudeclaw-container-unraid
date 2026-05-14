@@ -61,24 +61,27 @@
           Description="Stores Claude Code credentials, claudeclaw settings, logs, jobs, and Whisper models. Must persist across restarts.">/mnt/user/appdata/claudeclaw</Config>
 
   <!-- OPTIONAL VOLUMES -->
+  <!-- These intentionally target paths under /root/ rather than /mnt/. claudeclaw's default
+       'moderate' security scope restricts the daemon to its project dir (/root), so mounts
+       outside that path are invisible to it without lowering security to 'unrestricted'. -->
   <Config Name="Notes Directory"
-          Target="/mnt/notes"
+          Target="/root/notes"
           Default=""
           Mode="ro"
           Type="Path"
           Display="advanced"
           Required="false"
-          Description="Optional host directory for claudeclaw to read. Reference it in prompts and jobs as /mnt/notes.">
+          Description="Optional host directory for claudeclaw to read. Mounted inside the container at /root/notes so it falls within the default 'moderate' security scope. Reference it in prompts and jobs as /root/notes.">
   </Config>
 
   <Config Name="Documents Directory"
-          Target="/mnt/documents"
+          Target="/root/documents"
           Default=""
           Mode="ro"
           Type="Path"
           Display="advanced"
           Required="false"
-          Description="Optional host directory for claudeclaw to read. Reference it in prompts and jobs as /mnt/documents.">
+          Description="Optional host directory for claudeclaw to read. Mounted inside the container at /root/documents so it falls within the default 'moderate' security scope. Reference it in prompts and jobs as /root/documents.">
   </Config>
 
   <Config Name="Backup Directory"
@@ -127,7 +130,9 @@
     All messaging bridges use outbound connections only — no additional ports need to be opened.
 
     ADDITIONAL DIRECTORIES:
-    Mount host directories under /mnt/ to give claudeclaw access to your files.
+    Mount host directories under /root/ inside the container (e.g. /root/notes, /root/projects) so
+    they fall within claudeclaw's default 'moderate' security scope. Paths outside /root/ are
+    invisible to the daemon unless you set settings.json security.level to 'unrestricted'.
     Use read-only mode for directories it should only read, read-write for those it can modify.
 
     BACKUPS:
