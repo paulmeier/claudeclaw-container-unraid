@@ -10,23 +10,16 @@
   <Support>https://github.com/paulmeier/claudeclaw-container-unraid/issues</Support>
   <Project>https://github.com/paulmeier/claudeclaw-container</Project>
 
-  <Category>AI: Tools;Productivity: Other</Category>
+  <Category>AI:</Category>
 
   <Icon>https://raw.githubusercontent.com/paulmeier/claudeclaw-container-unraid/main/icons/claudeclaw-container.png</Icon>
   <TemplateURL>https://raw.githubusercontent.com/paulmeier/claudeclaw-container-unraid/main/templates/claudeclaw-container.xml</TemplateURL>
 
   <WebUI>http://[IP]:[PORT:4632]</WebUI>
 
-  <Overview>
-    claudeclaw runs Claude Code as a persistent background daemon with Telegram, Discord,
-    and Slack messaging bridges, scheduled cron jobs, voice transcription via Whisper, and
-    a web dashboard. Requires a Claude Code subscription at claude.ai/code — no API key needed.
-  </Overview>
+  <Overview>claudeclaw runs Claude Code as a persistent background daemon with Telegram, Discord, and Slack messaging bridges, scheduled cron jobs, voice transcription via Whisper, and a web dashboard. Requires a Claude Code subscription at claude.ai/code — no API key needed.</Overview>
 
-  <Requires>
-    A Claude Code subscription (claude.ai/code) is required. After starting the container
-    for the first time, open a terminal to it and run: claude login
-  </Requires>
+  <Requires>A Claude Code subscription (claude.ai/code) is required. After starting the container for the first time, open a terminal to it and run: claude login</Requires>
 
   <ExtraSearchTerms>claude ai assistant llm telegram discord slack whisper voice cron jobs automation</ExtraSearchTerms>
 
