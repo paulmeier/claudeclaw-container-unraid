@@ -10,7 +10,7 @@
   <Support>https://github.com/paulmeier/claudeclaw-container-unraid/issues</Support>
   <Project>https://github.com/paulmeier/claudeclaw-container</Project>
 
-  <Category>AI: Tools;Productivity: Other</Category>
+  <Category>AI:</Category>
 
   <Icon>https://raw.githubusercontent.com/paulmeier/claudeclaw-container-unraid/main/icons/claudeclaw-container.png</Icon>
   <TemplateURL>https://raw.githubusercontent.com/paulmeier/claudeclaw-container-unraid/main/templates/claudeclaw-container.xml</TemplateURL>
