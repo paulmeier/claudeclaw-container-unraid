@@ -1,7 +1,7 @@
 <Container>
   <Name>claudeclaw</Name>
-  <Repository>paulmeier/claudeclaw-container:latest</Repository>
-  <Registry>https://hub.docker.com/r/paulmeier/claudeclaw-container</Registry>
+  <Repository>ghcr.io/paulmeier/claudeclaw-container:latest</Repository>
+  <Registry>https://github.com/paulmeier/claudeclaw-container/pkgs/container/claudeclaw-container</Registry>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
   <Shell>sh</Shell>
