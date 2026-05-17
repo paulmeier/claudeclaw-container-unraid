@@ -5,7 +5,7 @@
 </p>
 
 [![Lint](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/lint.yml/badge.svg)](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/lint.yml)
-[![CI](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/ci.yml/badge.svg)](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/ci.yml)
+[![Release Please](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/release-please.yml/badge.svg)](https://github.com/paulmeier/claudeclaw-container-unraid/actions/workflows/release-please.yml)
 [![Release](https://img.shields.io/github/v/release/paulmeier/claudeclaw-container-unraid)](https://github.com/paulmeier/claudeclaw-container-unraid/releases)
 
 Unraid Community Applications template for [claudeclaw-container](https://github.com/paulmeier/claudeclaw-container) — a Docker container running [claudeclaw](https://github.com/moazbuilds/claudeclaw) as a persistent Claude Code personal assistant daemon.
