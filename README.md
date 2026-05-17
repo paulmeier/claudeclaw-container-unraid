@@ -12,9 +12,9 @@ Unraid Community Applications template for [claudeclaw-container](https://github
 
 ## Template
 
-- **Docker image**: `paulmeier/claudeclaw-container:latest`
+- **Container image**: `ghcr.io/paulmeier/claudeclaw-container:latest`
 - **Project**: https://github.com/paulmeier/claudeclaw-container
-- **Docker Hub**: https://hub.docker.com/r/paulmeier/claudeclaw-container
+- **Container registry**: https://github.com/paulmeier/claudeclaw-container/pkgs/container/claudeclaw-container
 
 ## Installation
 
