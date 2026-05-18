@@ -54,6 +54,24 @@ This opens an OAuth browser flow. Complete it once and credentials are saved per
 
 Edit `settings.json` in your app data directory (`/mnt/user/appdata/claudeclaw/claudeclaw/settings.json`) to configure messaging bridges and other options. Use [settings.example.json](https://github.com/paulmeier/claudeclaw-container/blob/main/settings.example.json) as a starting point.
 
+## Custom tooling (npm / pip packages)
+
+Some Claude Code skills shell out to CLI tools installed via `npm install -g <pkg>` or `pip install <pkg>`. The container's entrypoint automatically redirects both into the app data volume:
+
+| Manager | Where packages land                                         | Persisted across image updates? |
+| ------- | ----------------------------------------------------------- | ------------------------------- |
+| npm     | `/mnt/user/appdata/claudeclaw/npm-global/` + `npm-cache/`   | Yes                             |
+| pip     | `/mnt/user/appdata/claudeclaw/python-user/` + `pip-cache/`  | Yes                             |
+
+Install at runtime from an Unraid console (Docker → claudeclaw → **Console**) or any Claude Code skill:
+
+```bash
+npm install -g cowsay
+pip install httpie
+```
+
+Binaries land on `PATH` automatically and survive `docker pull` / container recreation. See [the container repo's README](https://github.com/paulmeier/claudeclaw-container#adding-npm-packages) for the full env-var reference and how to bake packages into a custom image if you'd rather pin them.
+
 ## Tailscale
 
 The template supports Unraid's Community Applications Tailscale integration. To enable it:
