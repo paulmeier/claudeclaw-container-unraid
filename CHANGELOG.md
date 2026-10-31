@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/paulmeier/claudeclaw-container-unraid/compare/v1.6.0...v1.6.1) (2026-10-31)
+
+
+### Bug Fixes
+
+* add dashboard token variable and AVX2 requirement ([#19](https://github.com/paulmeier/claudeclaw-container-unraid/issues/19)) ([f508953](https://github.com/paulmeier/claudeclaw-container-unraid/commit/f5089530fcbd5bd9ef47ff5491a3feffb960aa81))
+
 ## [1.6.0](https://github.com/paulmeier/claudeclaw-container-unraid/compare/v1.5.0...v1.6.0) (2026-05-18)
 
 
